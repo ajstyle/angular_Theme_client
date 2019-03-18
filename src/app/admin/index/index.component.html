@@ -1,0 +1,111 @@
+    
+<div class="container-fluid" *ngIf="!isResizing">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 col-sm-12">                        
+                <h2>
+                    <a class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+                        <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+                        <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+                    </a> Dashboard</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>                            
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ul>
+            </div>            
+            <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+
+                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
+                    <div echarts [options]="visitorsOptions" class="echart-line-chart" [autoResize]="true"></div>
+                    <span>Visitors</span>
+                </div>
+                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
+                    <div echarts [options]="visitsOptions" class="echart-line-chart" [autoResize]="true"></div>
+                    <span>Visits</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'EARNINGS'"
+                [value]="'$22,500'"
+                [details]="'19% compared to last week'"
+                [series]="earningOptionsSeries"
+                [lineColorCode]="'#f79647'"
+                [areaColorCode]="'#fac091'"
+            ></app-detail-tiles>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'SALES'"
+                [value]="'$500'"
+                [details]="'19% compared to last week'"
+                [series]="salesOptionsSeries"
+                [lineColorCode]="'#604a7b'"
+                [areaColorCode]="'#a092b0'"
+            ></app-detail-tiles>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'VISITS'"
+                [value]="'$21,215'"
+                [details]="'19% compared to last week'"
+                [series]="visitsAreaOptionsSeries"
+                [lineColorCode]="'#4aacc5'"
+                [areaColorCode]="'#92cddc'"
+            ></app-detail-tiles>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'LIKES'"
+                [value]="'$421,215'"
+                [details]="'19% compared to last week'"
+                [series]="visitsAreaOptionsSeries"
+                [lineColorCode]="'#4f81bc'"
+                [areaColorCode]="'#95b3d7'"
+            ></app-detail-tiles>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-6 col-md-12">
+            <app-top-products></app-top-products>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <app-referrals></app-referrals>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <app-total-revenue></app-total-revenue>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-4 col-md-12">
+            <app-chat></app-chat>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <app-managed-data></app-managed-data>
+        </div>                
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-4 col-md-12">
+            <app-general-feed></app-general-feed>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <app-twitter-feed></app-twitter-feed>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <app-member-info></app-member-info>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <app-activities></app-activities>
+        </div>
+    </div>
+</div>
